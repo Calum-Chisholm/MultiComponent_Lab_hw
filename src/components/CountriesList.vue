@@ -1,9 +1,11 @@
 <template lang="html">
   <div>
     <h1>All countries</h1>
-    <ul>
-        <list-item v-for="(country, index) in countriesprop" :key="index" :countryprop="country"></list-item>
-    </ul>
+    <list-item v-for="(country, index) in countriesprop" :key="index" :countryprop="country"></list-item>
+    <!-- <select> -->
+      <!-- <option  v-for="(country, index) in countriesprop" :key="index" :countryprop="country" value="country"> {{country.name}} -->
+      <!-- </option> -->
+    <!-- </select> -->
   </div>
 </template>
 

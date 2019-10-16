@@ -1,5 +1,5 @@
 <template lang="html">
-    <li v-on:click="handleClick">{{countryprop.name}}</li>
+  <li v-on:click="handleClick">{{countryprop.name}}</li>
 </template>
 
 <script>

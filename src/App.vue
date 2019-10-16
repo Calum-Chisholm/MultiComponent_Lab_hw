@@ -2,18 +2,22 @@
 <div>
   <h1>Countries</h1>
   <countries-list :countriesprop='countries'></countries-list>
+  <country-detail v-if='selectedCountry' :country='selectedCountry'></country-detail>
 </div>
 
 </template>
 
 <script>
 import CountriesList from './components/CountriesList.vue';
+import { eventBus } from './main.js';
+import CountryDetail from './components/CountryDetail.vue'
 
 export default {
   name: "app",
   data() {
     return {
-      countries: []
+      countries: [],
+      selectedCountry: null
     }
   },
   mounted(){
@@ -21,12 +25,13 @@ export default {
       .then(res => res.json())
       .then(data => this.countries = data)
 
-      // eventBus.$on('munro-selected', (munro) => {
-      //     this.selectedMunro = munro;
-      // });
+      eventBus.$on('country-selected', (country) => {
+          this.selectedCountry = country;
+      });
     },
   components: {
-    "countries-list": CountriesList
+    "countries-list": CountriesList,
+    "country-detail": CountryDetail
   }
 }
 </script>
